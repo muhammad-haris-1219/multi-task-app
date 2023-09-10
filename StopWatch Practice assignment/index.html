@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+
+    <title>Stop Watch</title>
+
+</head>
+
+<body>
+
+
+    <div id="switch">
+        <button onclick="switchSG()" id="switch1"><i class="fa-solid fa-hourglass-end btn"></i></button>
+        <button onclick="switchTodo()" id="switch2"><i class="fa-solid fa-stopwatch btn"></i></button>
+        <button onclick="switchTimer()" id="switch3"><i class="fa-solid fa-rectangle-list btn"></i></button>
+        <button onclick="switchClock()" id="switch4"><i class="fa-solid fa-clock btn"></i></button>
+    </div>
+
+    <div id="main">
+
+        <!-- Stopwatch -->
+        <div id="stopwatch_game_container">
+            <button id="swipe_clock" onclick="swipeTime()">clock</button>
+
+            <div id="stopwatch">
+                <div id="sub_stopwatch">
+                    <div id="sub_sw">
+                        <span onclick="startHrs()" class="sub_sw" id="h">00 hrs</span>
+                        <span onclick="startMin()" class="sub_sw" id="m">00 min</span>
+                        <span onclick="startSec()" class="sub_sw" id="s">00 sec </span>
+                        <span class="sub_sw" id="msec">00 ms</span>
+                    </div>
+                </div>
+                <div id="game_switch">
+                    <span onclick="gameSwitch1()" id="g_w1" readonly>Matching Numbers</span>
+                    <span onclick="gameSwitch2()" id="g_w2" readonly>Matching Alphabets</span>
+                </div>
+            </div>
+
+            <!-- Game -->
+            <div id="game_container">
+
+                <div id="game">
+                    <span class="sub_game">Scoring
+                        <span id="game_score">zero</span>
+                    </span>
+                    <input type="number" placeholder="User" id="user_input">
+                    <span class="sub_game" id="status">Status</span>
+                    <input type="number" placeholder="Computer" id="comp_input">
+                    <button onclick="randomGame1()" id="r_g1"></button>
+                    <button onclick="randomGame2()" id="r_g2"></button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- TODO Application -->
+
+        <div id="todo_container">
+
+            <div id="sub_list">
+
+                <div class="task_list" id="none">
+                    <span class="task_container">
+                        Your Task
+
+                    </span>
+                    <span class="btn_container">
+                        <button class="edit_btn"></button>
+                        <button class="edit_btn"></button>
+                    </span>
+                </div>
+
+            </div>
+
+            <div id="sub_todo">
+                <input type="text" id="todo_input" placeholder="Type your task" />
+                <button onclick="addTask()" class="todo_btn">
+                    <i class="fa-sharp fa-solid fa-share-from-square"></i>
+                </button>
+                <button onclick="clearTask()" class="todo_btn">
+                    <i class="fa-solid fa-trash fa-sharp"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Timer -->
+
+        <div id="timer_container">
+            <div id="timer">
+                <div id="sub_timer">
+                    <div id="sub_t">
+                        <span class="sub_t" id="hr">00 hrs</span>
+                        <span class="sub_t " id="sec">00 sec </span>
+                        <span class="sub_t " id="min">00 min</span>
+                        <span class="sub_t" id="ms">00 ms</span>
+                    </div>
+                </div>
+            </div>
+            <div id="timer_list">
+                <span class="list" id="ytl"> Your Timer List</span>
+            </div>
+            <div id="timer_btn">
+                <button onclick="playTimer()" class="timer_btn " id="play"><i
+                        class="fa-solid fa-circle-play"></i></button>
+                <button onclick="pasueTimer()" class="timer_btn"><i class="fa-solid fa-circle-pause"></i></button>
+                <button onclick="resetTimer()" class="timer_btn"><i class="fa-solid fa-power-off"></i></button>
+                <button onclick="lapTimer()" class="timer_btn"><i class="fa-solid fa-list-ul"></i></button>
+            </div>
+        </div>
+
+
+        <div id="clock_container">
+            <div id="current_time">TIME</div>
+            <div class="clock">
+                <svg>
+                    <defs>
+                        <linearGradient id='circle1'>
+                            <stop offset="100%" stop-color='#E8E8E8' />
+                        </linearGradient>
+                        <linearGradient id='circle2'>
+                            <stop offset="0%" stop-color='#D2042D' />
+                            <stop offset="60%" stop-color='#D2042D' />
+                            <stop offset="100%" stop-color='rgb(255, 159, 159)' />
+                        </linearGradient>
+                    </defs>
+
+
+                    <circle cx=125 cy=125 r=100 stroke='url(#circle1)'></circle>
+                    <circle cx=125 cy=125 r=100 stroke='url(#circle2)' id="circle_hr"></circle>
+                </svg>
+
+                <span id="c_hr">HOURS</span>
+            </div>
+
+            <div class="clock">
+                <svg>
+                    <defs>
+                        <linearGradient id='circle12'>
+                            <stop offset="100%" stop-color='#E8E8E8' />
+                        </linearGradient>
+                        <linearGradient id='circle22'>
+                            <stop offset="0%" stop-color='Aqua' />
+                            <stop offset="60%" stop-color='Aqua' />
+                            <stop offset="100%" stop-color='rgb(211, 255, 255)' />
+                        </linearGradient>
+                    </defs>
+
+                    <circle cx=125 cy=125 r=100 stroke='url(#circle12)'>
+                    </circle>
+                    <circle cx=125 cy=125 r=100 stroke='url(#circle22)' id="circle_min"></circle>
+                </svg>
+                <span id="c_min">MINUTES</span>
+            </div>
+            <div class="clock">
+                <svg>
+                    <defs>
+                        <linearGradient id='circle13'>
+                            <stop offset="100%" stop-color='#E8E8E8' />
+                        </linearGradient>
+                        <linearGradient id='circle23'>
+                            <stop offset="0%" stop-color='#AAFF00' />
+                            <stop offset="60%" stop-color='#AAFF00' />
+                            <stop offset="100%" stop-color='rgb(234, 255, 192)' />
+                        </linearGradient>
+                    </defs>
+
+                    <circle cx=125 cy=125 r=100 stroke='url(#circle13)'>
+                    </circle>
+                    <circle cx=125 cy=125 r=100 stroke='url(#circle23)' id="circle_sec"></circle>
+                </svg>
+
+                <span id="c_sec"> SECONDS</span>
+            </div>
+            <button id="swipe_container" onclick="swipeContainer()">Back</button>
+        </div>
+
+        <!-- Hidden -->
+        <div id="clock_container1">
+            <div id="current_time1">TIME
+            </div>
+            <div class="clock1">
+                <svg>
+                    <defs>
+                        <linearGradient id='circle1i'>
+                            <stop offset="100%" stop-color='#E8E8E8' />
+                        </linearGradient>
+                        <linearGradient id='circle2i'>
+                            <stop offset="0%" stop-color='#D2042D' />
+                            <stop offset="60%" stop-color='#D2042D' />
+                            <stop offset="100%" stop-color='rgb(255, 159, 159)' />
+                        </linearGradient>
+                    </defs>
+                    <circle cx=88 cy=88 r=65 stroke='url(#circle1i)'></circle>
+                    <circle cx=88 cy=88 r=65 stroke='url(#circle2i)' id="circle_hri"></circle>
+                </svg>
+
+                <span id="c_hri">HOURS</span>
+            </div>
+
+            <div class="clock1">
+                <svg>
+                    <defs>
+                        <linearGradient id='circle12i'>
+                            <stop offset="100%" stop-color='#E8E8E8' />
+                        </linearGradient>
+                        <linearGradient id='circle22i'>
+                            <stop offset="0%" stop-color='Aqua' />
+                            <stop offset="60%" stop-color='Aqua' />
+                            <stop offset="100%" stop-color='rgb(211, 255, 255)' />
+                        </linearGradient>
+                    </defs>
+
+                    <circle cx=88 cy=88 r=65 stroke='url(#circle12i)'>
+                    </circle>
+                    <circle cx=88 cy=88 r=65 stroke='url(#circle22i)' id="circle_mini"></circle>
+                </svg>
+                <span id="c_mini">MINUTES</span>
+            </div>
+            <div class="clock1">
+                <svg>
+                    <defs>
+                        <linearGradient id='circle13i'>
+                            <stop offset="100%" stop-color='#E8E8E8' />
+                        </linearGradient>
+                        <linearGradient id='circle23i'>
+                            <stop offset="0%" stop-color='#AAFF00' />
+                            <stop offset="60%" stop-color='#AAFF00' />
+                            <stop offset="100%" stop-color='rgb(234, 255, 192)' />
+                        </linearGradient>
+                    </defs>
+
+                    <circle cx=88 cy=88 r=65 stroke='url(#circle13i)'>
+                    </circle>
+                    <circle cx=88 cy=88 r=65 stroke='url(#circle23i)' id="circle_seci"></circle>
+                </svg>
+
+                <span id="c_seci"> SECONDS</span>
+            </div>
+
+        </div>
+
+
+
+
+
+    </div>
+
+
+
+    <script src="app.js">
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Testing</title>
+
+  <style>
+    svg {
+      position: relative;
+      background: teal;
+      height: 300px;
+      width: 300px;
+
+      transform: rotate(270deg);
+    }
+
+    svg circle {
+      width: 100%;
+      height: 100%;
+      fill: transparent;
+      stroke: red;
+      stroke-width: 5;
+      transform: translate(5px, 5px);
+    }
+
+    svg circle:nth-child(2) {
+
+      stroke: yellow;
+      stroke-dasharray: 628;
+      stroke-dashoffset: 628;
+    }
+  </style>
+</head>
+
+<body>
+  <svg>
+    <circle cx=120 cy=120 r=100></circle>
+    <circle cx=120 cy=120 r=100 id="x"></circle>
+  </svg>
+
+
+
+
+
+
+
+  <!-- <input type="text" name="" id="a" oninput="alphabet()">
+ <br> <br> -->
+  <!-- <button onclick="alphabet()">click</button> -->
+
+  <!-- 
+  <input type="text" id="a"> <br> <br>
+  <input type="text" id="b">
+  <br> <br>
+  <button onclick="abc()">Click</button> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+
+    setInterval(function () {
+      var a = new Date();
+      var b = a.getSeconds();
+      console.log(b)
+      document.getElementById('x').style.strokeDashoffset = 628 - (628 * b) / 60;
+    }, 1000)
+
+
+
+
+// var s = 0;
+//     function abc() {
+//       var a = document.getElementById('a');
+//       var b = document.getElementById('b');
+//       var c = Math.floor(Math.random() * 2);
+//     var x=  b.value = c
+// if(x==a.value){
+//   console.log('yes')
+// s++
+// alert(s)
+// }
+// else{
+//   console.log('nahi')
+// }
+
+
+      // console.log(c);
+      // console.log(a);
+// console.log(x)
+// a.value = b.value ='';
+    // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function alphabet(){
+//   var a = document.getElementById('a').value.toLowerCase();
+
+// var x = Math.floor(Math.random()*(90-65+1)+65);
+// var y = String.fromCharCode(x);
+
+// if(a == y){
+//   console.log('same');
+// }
+// else{
+//   console.log('not same');
+// }
+// }
+
+// var a =prompt('letter').toUpperCase();
+// var x = Math.floor(Math.random()*(90-65+1)+65);
+// var y = String.fromCharCode(x);
+// console.log(y);
+// console.log(a);
+// if(a == y){
+//   console.log('same');
+// }
+// else{
+//   console.log('not same');
+// }
+
+
+
+
+
+
+
+//       function a(input){
+// input.style.width = input.value.length + 'ch'
+//       }
+
+  </script>
+</body>
+
+</html>
